@@ -1,6 +1,6 @@
 # eENVD Questions and Answers
 
-[![N|Solid](https://lpa.nlis.com.au/img/logo.png)](https://https://lpa.nlis.com.au/)
+[![N|Solid](https://lpa.nlis.com.au/img/logo.png)](https://lpa.nlis.com.au/)
 
 Anytime we get questions from software vendors, we will publish all our answers **here!**
 
