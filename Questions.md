@@ -11,8 +11,7 @@ We couldn’t find details for Species Sheep. Method: /api/v3/vendordeclaration/
 
 > **Answer:** 
 Try "Sheep and Lamb". We have no relational storage, so we do not have to use any technical codes. So param values are exactly the same as user see them on the website:
-
-> - 	Cattle
+> - Cattle
 > - Bobby Calves
 > - Goat
 > - Sheep and Lamb
