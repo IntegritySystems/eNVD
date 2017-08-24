@@ -1,6 +1,6 @@
 # eNVD
 Portal for eNVD
-### https://developer.uat.nlis.com.au/envd-apispecs  
+### http://developer.integritysystems.com.au/envdapi.html
 
 [![N|Solid](https://lpa.nlis.com.au/img/logo.png)](https://https://lpa.nlis.com.au/)
 
