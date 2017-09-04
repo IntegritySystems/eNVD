@@ -1,0 +1,16 @@
+ header{
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+    top:0;
+    left:0;
+}
+.header-section{
+    top:0;
+    width: 100%;
+    background: #372f2c;
+    padding: 10px 30px;
+}
+.heading-text{
+    color: #fff;
+}

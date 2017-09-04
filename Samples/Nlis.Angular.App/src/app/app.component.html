@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">  
+  <div class="row">
+    <app-header [disabled] = "true" (onLoginClicked)="showLoginBox($event)"></app-header>
+  </div>
+  <div class="row">
+    <div class="main">
+      <div *ngIf="showLoginWindow">
+          <app-login></app-login>
+      </div>
+    </div>
+  </div>
+</div>
