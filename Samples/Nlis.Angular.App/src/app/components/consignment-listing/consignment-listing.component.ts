@@ -48,6 +48,19 @@ export class ConsignmentListingComponent implements OnInit, OnChanges {
   }
 
   private getConsignmentsList(){
+    let headers = new HttpHeaders()
+      .set('Authorization', localStorage.getItem('Authorization'))
+      .set('Accept', 'application/json');
+
+    return this.http.get<ConsignmentsListResponse>(`${this.apiUrl}?${this.getQueryStringParams()}`, { headers })
+      .toPromise()
+      .then(response => {
+        this.model = response.Value.Items;
+      })
+      .catch(error => console.error(error));
+  }
+
+  private getQueryStringParams(): string {
     let params = new URLSearchParams();
     if(this.consignmentNumber.length > 0)
       params.set('consignmentNumber', this.consignmentNumber);
@@ -57,15 +70,6 @@ export class ConsignmentListingComponent implements OnInit, OnChanges {
     if(this.nextPageToken.length > 0)
       params.set('pageToken', this.nextPageToken);
 
-    let headers = new HttpHeaders()
-      .set('Authorization', localStorage.getItem('Authorization'))
-      .set('Accept', 'application/json');
-
-    return this.http.get<ConsignmentsListResponse>(`${this.apiUrl}?${params.toString()}`, { headers })
-      .toPromise()
-      .then(response => {
-        this.model = response.Value.Items;
-      })
-      .catch(error => console.error(error));
+    return params.toString();
   }
 }

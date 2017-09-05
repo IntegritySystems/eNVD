@@ -31,7 +31,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let consignment of model">
-            <td>{{ consignment.ConsignmentNumber }}</td>
+            <td><a href="/Consignments/{{consignment.ConsignmentNumber}}">{{ consignment.ConsignmentNumber }}</a></td>
             <td>{{ consignment.Species }}</td>
             <td>{{ consignment.PicFrom }}</td>
             <td>{{ consignment.PicTo }}</td>
