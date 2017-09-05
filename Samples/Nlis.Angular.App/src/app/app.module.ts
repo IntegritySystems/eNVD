@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
+import { ConsignmentListingComponent } from './components/consignment-listing/consignment-listing.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    ConsignmentListingComponent
   ],
   imports: [
     BrowserModule,

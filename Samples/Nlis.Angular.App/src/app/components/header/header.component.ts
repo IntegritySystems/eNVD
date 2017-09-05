@@ -10,12 +10,12 @@ export class HeaderComponent implements OnInit {
   @Input() disabled: boolean = true;
   constructor() { }
 
-  @Output() onLoginClicked: EventEmitter<any> = new EventEmitter();
+  @Output() onToggleLogin: EventEmitter<boolean> = new EventEmitter();
   ngOnInit() {
   }
 
   toggle() {
     this.disabled = !this.disabled;
-    this.onLoginClicked.emit(this.disabled);
+    this.onToggleLogin.emit(this.disabled);
   }
 }

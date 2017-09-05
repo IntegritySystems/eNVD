@@ -7,9 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  showLoginWindow: boolean = false;
+  canShowLoginWindow: boolean = false;
+  isAuthenticated: boolean = false;
 
-  showLoginBox(isVisible: boolean) {
-    this.showLoginWindow = !isVisible;
+  toggleLoginWindow(isVisible: boolean) {
+    this.canShowLoginWindow = !isVisible;
+    this.isAuthenticated = localStorage.getItem('Authorization') && localStorage.getItem('Authorization').length > 0;
   }
 }

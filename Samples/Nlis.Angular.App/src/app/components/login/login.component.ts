@@ -11,21 +11,18 @@ import 'rxjs/add/operator/toPromise';
 })
 export class LoginComponent implements OnInit {
   model = { username: '', password: '' };
+  @Output() onToggleLogin: EventEmitter<boolean> = new EventEmitter();
 
   private lpaSignInSettings = environment.lpaSignInRequestBody;
 
   constructor(private http: HttpClient) { }
-
-  @Output() bearerToken: EventEmitter<any> = new EventEmitter<any>();
 
   ngOnInit() {
   }
 
   lpaSignIn(form: any){
     let headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded')
-      .set('Access-Control-Allow-Origin', '*')
-      .set('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      .set('Content-Type', 'application/x-www-form-urlencoded');
 
     let requestBody = new URLSearchParams();
     requestBody.set('client_id', this.lpaSignInSettings.clientId);
@@ -39,12 +36,14 @@ export class LoginComponent implements OnInit {
       .toPromise()
       .then(response => {
         localStorage.setItem('Authorization', `${response['token_type']} ${response['access_token']}`);
+        this.onToggleLogin.emit(true);
       })
       .catch(this.handleError);
   }
 
   private handleError(error: any){
     console.error('An error occured: ', error);
+    localStorage.removeItem('Authorization');
     return Promise.reject(error.message || error);
   }
 }

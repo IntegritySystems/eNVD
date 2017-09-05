@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8"><h1>Consignments</h1></div>
+    <div class="col-4">
+      <label class="pull-right"><input type="checkbox" ngModel id="includeDrafts" name="includeDrafts"> Include Drafts</label>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-8"></div>
+    <div class="col-4">
+      <input type="text" 
+             class="form-control" 
+             id="consignmentNumber" 
+             placeholder="Search by Consignment Number" 
+             [(ngModel)]="model.consignmentNumber" 
+             name="consignmentNumber" 
+             #consignmentNumber="ngModel">
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-hover table-responsive">
+      <thead>
+        <tr>
+          <th>Consignment Number</th>
+          <th>Species</th>
+          <th>From PIC</th>
+          <th>To PIC</th>
+          <th>Status</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let consignment of model">
+            <td>{{ consignment.ConsignmentNumber }}</td>
+            <td>{{ consignment.Species }}</td>
+            <td>{{ consignment.PicFrom }}</td>
+            <td>{{ consignment.PicTo }}</td>
+            <td>{{ consignment.Status }}</td>
+            <td>{{ consignment.UpdatedAt | date: dateFormat }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
