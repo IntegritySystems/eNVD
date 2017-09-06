@@ -32,11 +32,6 @@
       <tbody>
         <tr *ngIf="isLoading">Loading...</tr>
         <tr *ngFor="let consignment of consignments">
-            <!-- <td><a href="/Consignments/{{consignment.ConsignmentNumber}}" 
-                   (click)="onConsignmentLinkClicked({{consignment.ConsignmentNumber}})">{{ consignment.ConsignmentNumber }}</a></td> -->
-            <!-- <td>
-              <button type="button" class="btn btn-link" (click)="onConsignmentLinkClicked(consignment.ConsignmentNumber)" >{{consignment.ConsignmentNumber}}</button>
-            </td> -->
             <td>
               <a routerLink="/consignments/{{consignment.ConsignmentNumber}}">{{consignment.ConsignmentNumber}}</a>
             </td>

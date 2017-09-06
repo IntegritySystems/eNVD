@@ -1,4 +1,4 @@
-<div class="container" style="margin-top:15px;" *ngIf="consignment">
+<div class="container" style="margin-top:15px;">
   <div class="row">
     <div class="col-3">
       <div class="row text-right">
@@ -17,7 +17,7 @@
           <div class="list-group">
             <button *ngFor="let item of consignment.FormPrograms"
                     class="list-group-item list-group-item-action" 
-                    (click)="onProgramSelected(item)">{{availableProgramsDictionary[item]?.displayName}}</button>
+                    (click)="onProgramSelected(item)">{{availableProgramsDictionary[item]?.DisplayName}}</button>
           </div>
         </div>
       </div>
@@ -25,7 +25,9 @@
     <div class="col-8">
       <div class="row">
         <div class="col-12">
-          
+          <json-schema-form [schema]="availableProgramsDictionary[selectedProgram]?.Schema"></json-schema-form>
+          <!--[layout]="availableProgramsDictionary[selectedProgram]?.FormDefinition" 
+                            [data]="availableProgramsDictionary[selectedProgram]?.Model"-->
         </div>
       </div>
     </div>
