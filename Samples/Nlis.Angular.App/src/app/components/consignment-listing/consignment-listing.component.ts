@@ -1,8 +1,8 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
-
+import 'rxjs/add/operator/map';
 interface Consignement {
   ConsignementNumber: string;
   Status: string,
@@ -19,15 +19,16 @@ interface ConsignmentsListResponse {
   }
 }
 
-
 @Component({
   selector: 'app-consignment-listing',
   templateUrl: './consignment-listing.component.html',
   styleUrls: ['./consignment-listing.component.css']
 })
 
-export class ConsignmentListingComponent implements OnInit, OnChanges {
-  model: Array<Consignement> = [];
+export class ConsignmentListingComponent implements OnInit {
+  private consignments: Array<Consignement> = [];
+  private isLoading: boolean = true;
+
   includeDrafts: boolean = true;
   pageSize: number = 10;
   consignmentNumber: string = '';
@@ -36,28 +37,28 @@ export class ConsignmentListingComponent implements OnInit, OnChanges {
   private nextPageToken: string = '';
   private prevPageToken: string = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
-    this.getConsignmentsList();
+    this.onFiltersChanged();
   }
 
-  ngOnChanges(){
-    console.log('I am here')
-
+  private onFiltersChanged(){
+    this.getConsignmentsList().subscribe(data => {
+      this.consignments = data.Value.Items;
+      this.isLoading = false;
+    }, error => () => { console.error(error); });
   }
 
   private getConsignmentsList(){
-    let headers = new HttpHeaders()
-      .set('Authorization', localStorage.getItem('Authorization'))
-      .set('Accept', 'application/json');
+    let headers = new Headers();
+    headers.set('Authorization', localStorage.getItem('Authorization'));
+    headers.set('Accept', 'application/json');
 
-    return this.http.get<ConsignmentsListResponse>(`${this.apiUrl}?${this.getQueryStringParams()}`, { headers })
-      .toPromise()
-      .then(response => {
-        this.model = response.Value.Items;
-      })
-      .catch(error => console.error(error));
+    return this.http.get(`${this.apiUrl}?${this.getQueryStringParams()}`, { headers })
+      .map((res: Response) => {
+        return res.json();
+      });
   }
 
   private getQueryStringParams(): string {

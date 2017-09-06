@@ -2,7 +2,9 @@
   <div class="row">
     <div class="col-8"><h1>Consignments</h1></div>
     <div class="col-4">
-      <label class="pull-right"><input type="checkbox" ngModel id="includeDrafts" name="includeDrafts"> Include Drafts</label>
+      <label class="pull-right">
+        <input type="checkbox" value="" [(ngModel)]="includeDrafts" (change)="onFiltersChanged()" > Include Drafts
+      </label>
     </div>
   </div>
   <div class="row form-group">
@@ -12,9 +14,8 @@
              class="form-control" 
              id="consignmentNumber" 
              placeholder="Search by Consignment Number" 
-             [(ngModel)]="model.consignmentNumber" 
-             name="consignmentNumber" 
-             #consignmentNumber="ngModel">
+             [(ngModel)]="consignmentNumber" 
+             (change)="onFiltersChanged()">
     </div>
   </div>
   <div class="row">
@@ -30,7 +31,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let consignment of model">
+        <tr *ngIf="isLoading">Loading...</tr>
+        <tr *ngFor="let consignment of consignments">
             <td><a href="/Consignments/{{consignment.ConsignmentNumber}}">{{ consignment.ConsignmentNumber }}</a></td>
             <td>{{ consignment.Species }}</td>
             <td>{{ consignment.PicFrom }}</td>

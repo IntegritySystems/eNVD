@@ -1,14 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">  
   <div class="row">
-    <app-header [disabled] = "true" (onToggleLogin)="toggleLoginWindow($event)"></app-header>
+    <app-header></app-header>
   </div>
   <div class="row">
     <div class="main">
-      <div *ngIf="canShowLoginWindow">
+      <div *ngIf="!isAuthenticated">
           <app-login (onToggleLogin)="toggleLoginWindow($event)"></app-login>
       </div>
-      <div *ngIf="!canShowLoginWindow && isAuthenticated">
+      <div *ngIf="isAuthenticated">
         <app-consignment-listing></app-consignment-listing>
       </div>
     </div>

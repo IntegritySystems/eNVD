@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Http, Headers } from '@angular/http';
 import { environment } from '../../../environments/environment'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
@@ -15,14 +15,14 @@ export class LoginComponent implements OnInit {
 
   private lpaSignInSettings = environment.lpaSignInRequestBody;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
   }
 
   lpaSignIn(form: any){
-    let headers = new HttpHeaders()
-      .set('Content-Type', 'application/x-www-form-urlencoded');
+    let headers = new Headers();
+    headers.set('Content-Type', 'application/x-www-form-urlencoded');
 
     let requestBody = new URLSearchParams();
     requestBody.set('client_id', this.lpaSignInSettings.clientId);
@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
     
     this.http.post(this.lpaSignInSettings.signinUri, requestBody.toString(), { headers })
       .toPromise()
-      .then(response => {
-        localStorage.setItem('Authorization', `${response['token_type']} ${response['access_token']}`);
+      .then(res => {
+        let obj = res.json();
+        localStorage.setItem('Authorization', `${obj.token_type} ${obj.access_token}`);
         this.onToggleLogin.emit(true);
       })
       .catch(this.handleError);
