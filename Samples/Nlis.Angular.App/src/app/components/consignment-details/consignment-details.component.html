@@ -1,34 +1,33 @@
-
-  <!-- <div class="row">
-    <div class="col-12"><button type="button" class="btn btn-link" (click)="goBackToConsignmentListing()">< Back</button></div>
-  </div>
-  <div class="consignment-Details">
-    <div class="row">
-      <div class="col-xs-12 col-md-6 col-lg-10"><h2>{{ consignment.ConsignmentNumber }}</h2></div>
-      <div class="col-xs-12 col-md-6 col-lg-2"><button type="button" class="btn btn-primary">Save</button></div>
-    </div>
-    <hr style="height: 1px;" />
-    <div class="row">
-      
-    </div>
-  </div> -->
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-3 col-sm-2 col-md-2 col-lg-1 col-xl-1">
-              <nav class="nav navbar-light navbar-toggleable-sm">
-                  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarWEX" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="navbar-collapse collapse flex-column mt-md-0 mt-4 pt-md-0 pt-4" id="navbarWEX">
-                      <a class="nav-link navbar-brand active" href="~/Views/Forms/ControlPanel.cshtml"><span class="fa fa-home"></span></a>
-                      <a href="" class="nav-link">Linnk</a>
-                      <a href="" class="nav-link">Linnk</a>
-                      <a href="" class="nav-link">Linnk</a>
-                  </div>
-              </nav>
-          </div>
-          <div class="col-9 col-sm-10 col-md-10 col-lg-11 col-xl-11">
-              <h2>Hello There</h2>
-          </div>
+<div class="container" style="margin-top:15px;" *ngIf="consignment">
+  <div class="row">
+    <div class="col-3">
+      <div class="row text-right">
+        <div class="col-12">
+          <button type="button" class="btn btn-primary" style="margin-right:20px;">Save</button>
+          <a routerLink="/consignments" class="btn btn-secondary">Cancel</a>
+        </div>
       </div>
+      <div class="row text-right">
+        <div class="col-12"><h2>{{consignment.ConsignmentNumber}}</h2></div>
+        <div class="col-12">Status: <strong>{{consignment.Status}}</strong></div>
+        <div class="col-12 form-group">Last Updated: <strong>{{consignment.UpdatedAt | date:dateFormat}}</strong></div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="list-group">
+            <button *ngFor="let item of consignment.FormPrograms"
+                    class="list-group-item list-group-item-action" 
+                    (click)="onProgramSelected(item)">{{availableProgramsDictionary[item]?.displayName}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="row">
+        <div class="col-12">
+          
+        </div>
+      </div>
+    </div>
   </div>
+</div>

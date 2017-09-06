@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { ConsignmentListingComponent } from './components/consignment-listing/consignment-listing.component';
 import { ConsignmentDetailsComponent } from './components/consignment-details/consignment-details.component';
+import { FormDetailsComponent } from './form-details/form-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ConsignmentDetailsComponent } from './components/consignment-details/co
     HeaderComponent,
     LoginComponent,
     ConsignmentListingComponent,
-    ConsignmentDetailsComponent
+    ConsignmentDetailsComponent,
+    FormDetailsComponent
   ],
   imports: [
     BrowserModule,

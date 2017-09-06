@@ -9,7 +9,7 @@
           <app-login (onToggleLogin)="toggleLoginWindow($event)"></app-login>
       </div>
       <div *ngIf="isAuthenticated">
-        <a routerLink="/consignments">Consignments</a>
+        <a class="form-group" routerLink="/consignments">Consignments</a>
         <router-outlet></router-outlet>
       </div>
     </div>
