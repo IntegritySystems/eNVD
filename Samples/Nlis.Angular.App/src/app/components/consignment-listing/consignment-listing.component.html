@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-8"><h1>Consignments</h1></div>
-    <div class="col-4">
+    <div class="col-12">
       <label class="pull-right">
         <input type="checkbox" value="" [(ngModel)]="includeDrafts" (change)="onFiltersChanged()" > Include Drafts
       </label>
@@ -35,8 +34,11 @@
         <tr *ngFor="let consignment of consignments">
             <!-- <td><a href="/Consignments/{{consignment.ConsignmentNumber}}" 
                    (click)="onConsignmentLinkClicked({{consignment.ConsignmentNumber}})">{{ consignment.ConsignmentNumber }}</a></td> -->
-            <td>
+            <!-- <td>
               <button type="button" class="btn btn-link" (click)="onConsignmentLinkClicked(consignment.ConsignmentNumber)" >{{consignment.ConsignmentNumber}}</button>
+            </td> -->
+            <td>
+              <a routerLink="/consignments/{{consignment.ConsignmentNumber}}">{{consignment.ConsignmentNumber}}</a>
             </td>
             <td>{{ consignment.Species }}</td>
             <td>{{ consignment.PicFrom }}</td>
