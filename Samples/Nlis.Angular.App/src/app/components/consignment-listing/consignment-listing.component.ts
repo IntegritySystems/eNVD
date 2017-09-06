@@ -1,23 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/observable';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
-interface Consignement {
-  ConsignementNumber: string;
-  Status: string,
-  CreatedBy: string,
-  CreatedAt: string,
-  UpdatedAt: string
-}
-
-interface ConsignmentsListResponse {
-  Value: {
-    Items: Array<Consignement>;
-    PageToken: string;
-    NextPageToken: string
-  }
-}
 
 @Component({
   selector: 'app-consignment-listing',
@@ -26,21 +11,26 @@ interface ConsignmentsListResponse {
 })
 
 export class ConsignmentListingComponent implements OnInit {
-  private consignments: Array<Consignement> = [];
+  private consignments: Array<any> = [];
   private isLoading: boolean = true;
-
-  includeDrafts: boolean = true;
-  pageSize: number = 10;
-  consignmentNumber: string = '';
-
+  private includeDrafts: boolean = true;
+  private pageSize: number = 10;
+  private consignmentNumber: string = '';
   private apiUrl = '/api/v3/vendordeclaration/consignments';
   private nextPageToken: string = '';
   private prevPageToken: string = '';
+
+  @Output() onConsignmentDetailsClicked: EventEmitter<string> = new EventEmitter();
 
   constructor(private http: Http) { }
 
   ngOnInit() {
     this.onFiltersChanged();
+  }
+
+  private onConsignmentLinkClicked(cid: string) {
+    
+    this.onConsignmentDetailsClicked.emit(cid);
   }
 
   private onFiltersChanged(){
@@ -50,15 +40,13 @@ export class ConsignmentListingComponent implements OnInit {
     }, error => () => { console.error(error); });
   }
 
-  private getConsignmentsList(){
+  private getConsignmentsList(): Observable<any> {
     let headers = new Headers();
     headers.set('Authorization', localStorage.getItem('Authorization'));
     headers.set('Accept', 'application/json');
 
     return this.http.get(`${this.apiUrl}?${this.getQueryStringParams()}`, { headers })
-      .map((res: Response) => {
-        return res.json();
-      });
+      .map(res => { return res.json(); });
   }
 
   private getQueryStringParams(): string {

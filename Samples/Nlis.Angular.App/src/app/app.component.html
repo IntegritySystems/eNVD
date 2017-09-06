@@ -1,6 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">  
-  <div class="row">
+  <div class="row form-group">
     <app-header></app-header>
   </div>
   <div class="row">
@@ -9,7 +9,12 @@
           <app-login (onToggleLogin)="toggleLoginWindow($event)"></app-login>
       </div>
       <div *ngIf="isAuthenticated">
-        <app-consignment-listing></app-consignment-listing>
+        <div class="consignment-listing-container" *ngIf="!consignmentNumberDetails">
+          <app-consignment-listing (onConsignmentDetailsClicked)="toggleConsignmentDetails($event)"></app-consignment-listing>
+        </div>
+        <div class="consignment-details-container" *ngIf="consignmentNumberDetails">
+          <app-consignment-details [consignmentNumber]="consignmentNumberDetails" (clearConsignmentNumber)="toggleConsignmentDetails()" ></app-consignment-details>
+        </div>
       </div>
     </div>
   </div>
