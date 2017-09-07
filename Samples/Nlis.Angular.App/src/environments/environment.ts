@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
+  eNvdV3Api: '/api/v3/vendordeclaration/',
   lpaSignInRequestBody: {
     signinUri: '/auth',
     clientId: 'roclient',

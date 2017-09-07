@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/observable';
+import { environment } from '../../../environments/environment';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
@@ -16,7 +17,7 @@ export class ConsignmentListingComponent implements OnInit {
   private includeDrafts: boolean = true;
   private pageSize: number = 10;
   private consignmentNumber: string = '';
-  private apiUrl = '/api/v3/vendordeclaration/consignments';
+  private apiUrl = `${environment.eNvdV3Api}/consignments`;
   private nextPageToken: string = '';
   private prevPageToken: string = '';
 
