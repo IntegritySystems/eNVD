@@ -14,10 +14,10 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="list-group">
-            <button *ngFor="let item of consignment.FormPrograms"
-                    class="list-group-item list-group-item-action" 
-                    (click)="onProgramSelected(item)">{{availableProgramsDictionary[item]?.DisplayName}}</button>
+          <div class="list-group" *ngIf="availableProgramsDictionary">
+            <button *ngFor="let item of availableProgramsDictionary"
+                    class="list-group-item list-group-item-action" [class.active] = "item.program === selectedProgram"
+                    (click)="onProgramSelected(item.program)">{{item?.displayName}}</button>
           </div>
         </div>
       </div>
@@ -25,9 +25,13 @@
     <div class="col-8">
       <div class="row">
         <div class="col-12">
-          <json-schema-form [schema]="availableProgramsDictionary[selectedProgram]?.Schema"></json-schema-form>
-          <!--[layout]="availableProgramsDictionary[selectedProgram]?.FormDefinition" 
-                            [data]="availableProgramsDictionary[selectedProgram]?.Model"-->
+          <span *ngIf="isLoading">Loading...</span>
+          <json-schema-form *ngIf="!isLoading"
+            [framework]="materialDesign"
+            [loadExternalAssets]="true"
+            [schema]="selectedFormSchema"
+            [data]="selectedFormModel"
+            (onSubmit)="onSubmitForm($event)"></json-schema-form>
         </div>
       </div>
     </div>
