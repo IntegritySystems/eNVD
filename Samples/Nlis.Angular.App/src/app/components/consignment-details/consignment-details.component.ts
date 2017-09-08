@@ -43,7 +43,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
     this.getSelectedProgramDetails(selectedProgram)
       .then(result => {
         this.selectedFormSchema = result[0];
-        this.selectedFormModel = result[1].Value;
+        this.selectedFormModel = result[1].Value.Payload;
         this.isLoading = false;
       });
   }
@@ -113,7 +113,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
         })
         .then(result => {
           this.selectedFormSchema = result[0];
-          this.selectedFormModel = result[1].Value;
+          this.selectedFormModel = result[1].Value.Payload;
           this.isLoading = false;
         });
       })
