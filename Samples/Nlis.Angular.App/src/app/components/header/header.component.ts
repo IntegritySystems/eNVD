@@ -7,15 +7,14 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
-  @Input() disabled: boolean = true;
+  @Input() isAuthenticated: boolean = true;
   constructor() { }
 
   @Output() onToggleLogin: EventEmitter<boolean> = new EventEmitter();
   ngOnInit() {
   }
 
-  toggle() {
-    this.disabled = !this.disabled;
-    this.onToggleLogin.emit(this.disabled);
+  logout() {
+    localStorage.clear();
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Http, Headers } from '@angular/http';
+import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment'
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
@@ -11,11 +12,11 @@ import 'rxjs/add/operator/toPromise';
 })
 export class LoginComponent implements OnInit {
   model = { username: '', password: '' };
-  @Output() onToggleLogin: EventEmitter<boolean> = new EventEmitter();
+  @Output() onSuccessfulAuthenticated: EventEmitter<boolean> = new EventEmitter();
 
   private lpaSignInSettings = environment.lpaSignInRequestBody;
 
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
   ngOnInit() {
   }
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit {
       .then(res => {
         let obj = res.json();
         localStorage.setItem('Authorization', `${obj.token_type} ${obj.access_token}`);
-        this.onToggleLogin.emit(true);
+        this.onSuccessfulAuthenticated.emit(true);
+        this.router.navigate(['/consignments'])
       })
       .catch(this.handleError);
   }

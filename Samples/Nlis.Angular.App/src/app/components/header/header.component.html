@@ -1,11 +1,11 @@
 <header>
   <div class="header-section">
     <section class="row">
-      <h3 class="col-8 heading-text">eNVD Sample App</h3>
-      <div class="col-4" role="group">
-        <p class="user float-right">
-          <a class="btn btn-secondary btn-md" href="#" (click)="toggle()" [class.disabled]="!disabled">
-            <i class="fa fa-user-circle-o" aria-hidden="true"></i> Login</a>
+      <div class="col-xs-6 col-md-8 heading-text"><h3>eNVD Sample App</h3></div>
+      <div class="col-md-4" role="group">
+        <p class="user pull-right">
+          <a class="btn btn-default btn-md" href="#" (click)="logout()" [class.hidden]="!isAuthenticated">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> Logout</a>
         </p>
       </div>
       </section>

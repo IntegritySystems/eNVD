@@ -24,7 +24,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
   private selectedFormSchema: any = {};
   private selectedFormModel: any = {};
   private isLoading: boolean = false;
-  private materialDesign: string = 'no-framework';
+  private materialDesign: string = 'bootstrap-3';
 
   constructor(private http: Http, private route: ActivatedRoute) { }
 
