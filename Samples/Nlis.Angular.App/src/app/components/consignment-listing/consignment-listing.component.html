@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <label class="pull-right">
+        <input type="checkbox" value="" [(ngModel)]="includeDrafts" (change)="onFiltersChanged()" > Include Drafts
+      </label>
+    </div>
+  </div>
+  <div class="row form-group">
+      <div class="col-md-8"></div>
+    <div class="col-md-4">
+      <input type="text" 
+             class="form-control" 
+             id="consignmentNumber" 
+             placeholder="Search by Consignment Number" 
+             [(ngModel)]="consignmentNumber" 
+             (change)="onFiltersChanged()">
+    </div>
+  </div>
+  <div class="row">
+    <table class="table table-sm table-hover table-responsive">
+      <thead>
+        <tr>
+          <th>Consignment Number</th>
+          <th>Species</th>
+          <th>From PIC</th>
+          <th>To PIC</th>
+          <th>Status</th>
+          <th>Last Updated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="isLoading">Loading...</tr>
+        <tr *ngFor="let consignment of consignments">
+            <td>
+              <a routerLink="/consignments/{{consignment.ConsignmentNumber}}">{{consignment.ConsignmentNumber}}</a>
+            </td>
+            <td>{{ consignment.Species }}</td>
+            <td>{{ consignment.PicFrom }}</td>
+            <td>{{ consignment.PicTo }}</td>
+            <td>{{ consignment.Status }}</td>
+            <td>{{ consignment.UpdatedAt | date: dateFormat }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

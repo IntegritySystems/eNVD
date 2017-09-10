@@ -1,0 +1,14 @@
+{
+    "/auth":{
+        "target": "http://10.1.201.161:8069",
+        "pathRewrite": { "^/auth": "/connect/token" },
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    "/api/*":{
+        "target": "http://10.1.201.161:8041",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

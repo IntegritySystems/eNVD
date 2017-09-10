@@ -10,7 +10,6 @@ namespace Nlis.DotNet.ConsoleApp
     public class MenuOptionContext
     {
         private readonly IDictionary<int, MenuOptionStrategy> _strategies;
-        private readonly ApiHelper _apiHelper;
         public int StrategyIndex { get; set; } = 0;
 
         public MenuOptionContext(string apiBaseUrl, string authToken)
@@ -20,17 +19,17 @@ namespace Nlis.DotNet.ConsoleApp
             client.DefaultRequestHeaders.Accept.ParseAdd("application/json");
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", authToken);
 
-            _apiHelper = new ApiHelper(client);
+            var apiHelper = new ApiHelper(client);
 
-            var consignmentListStrategy = new GetConsignmentListStrategy(_apiHelper);
+            var consignmentListStrategy = new GetConsignmentListStrategy(apiHelper);
             _strategies = new Dictionary<int, MenuOptionStrategy>
             {
-                {1, new GetAvailableProgramForSpeciesStrategy(_apiHelper) },
+                {1, new GetAvailableProgramForSpeciesStrategy(apiHelper) },
                 {2, consignmentListStrategy },
                 {3, consignmentListStrategy },
-                {4, new GetConsignmentDetailsStrategy(_apiHelper) },
-                {5, new CreateNewConsignmentStrategy(_apiHelper) },
-                {6, new AddFormToExistingConsignmentStrategy(_apiHelper) }
+                {4, new GetConsignmentDetailsStrategy(apiHelper) },
+                {5, new CreateNewConsignmentStrategy(apiHelper) },
+                {6, new AddFormToExistingConsignmentStrategy(apiHelper) }
             };
         }
 

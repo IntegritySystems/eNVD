@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container-fluid">  
+  <div class="row form-group">
+    <app-header [isAuthenticated]="isAuthenticated"></app-header>
+  </div>
+  <div class="row">
+    <div class="main">
+      <div *ngIf="!isAuthenticated">
+          <app-login (onSuccessfulAuthenticated)="toggleLoginWindow($event)"></app-login>
+      </div>
+      <div *ngIf="isAuthenticated">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
