@@ -1,14 +1,12 @@
 {
     "/auth":{
-        "target": "http://10.1.201.161:8069",
+        "target": "[Enter the SSO Auth SERVICE URI]",
         "pathRewrite": { "^/auth": "/connect/token" },
         "secure": false,
-        "changeOrigin": true,
-        "logLevel": "debug"
+        "changeOrigin": true
     },
     "/api/*":{
-        "target": "http://10.1.201.161:8041",
-        "secure": false,
-        "logLevel": "debug"
+        "target": "[Enter the eNVD API URI]",
+        "secure": false
     }
 }
