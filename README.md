@@ -12,5 +12,5 @@ Key elements Of this system are the Livestock Production Assurance (LPA) program
 This repository will help assist software vendors get eNVD sofware to market  
  
 * Code Samples
-* See [Questions and Answers](/Questions.md)
+
 
