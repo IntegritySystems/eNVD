@@ -1,39 +1,5 @@
-{
-  "id": "f3bd06fa-bd2d-f94c-6a51-443051a2c050",
-  "name": "Postman Globals",
-  "values": [
-    {
-      "enabled": true,
-      "key": "Program",
-      "value": "LPA.C.0",
-      "type": "text"
-    },
-    {
-      "enabled": true,
-      "key": "ConsignmentNo",
-      "value": "C-000000365",
-      "type": "text"
-    },
-    {
-      "enabled": true,
-      "key": "SubformQuantityID",
-      "value": "743",
-      "type": "text"
-    },
-    {
-      "enabled": true,
-      "key": "SubformPartBID",
-      "value": "",
-      "type": "text"
-    },
-    {
-      "enabled": true,
-      "key": "SubformPartCID",
-      "value": "",
-      "type": "text"
-    }
-  ],
-  "_postman_variable_scope": "globals",
-  "_postman_exported_at": "2017-09-28T05:34:15.231Z",
-  "_postman_exported_using": "Postman/5.2.0"
-}
+Program:LPA.C.0
+ConsignmentNo:
+SubformQuantityID:
+SubformPartBID:
+SubformPartCID:
