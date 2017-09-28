@@ -1,0 +1,1652 @@
+{
+	"variables": [],
+	"info": {
+		"name": "eNVD Software",
+		"_postman_id": "5261afae-18ed-a351-b550-734582798e30",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.  AUTH : LPA oauth2 token request (Replace Credentials in Body)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://auth-uat.integritysystems.com.au/connect/token",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "client_id=yourclientid&client_secret=yourclientsecret&grant_type=password&scope=lpa_scope&username=yourpic-youruserid&password=yourpassword"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2a LPA Get Forms available for Cattle",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/$model?species=Cattle",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"forms",
+						"$model"
+					],
+					"query": [
+						{
+							"key": "species",
+							"value": "Cattle",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2b LPA Get Forms available for Goat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/$model?species=Goat",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"forms",
+						"$model"
+					],
+					"query": [
+						{
+							"key": "species",
+							"value": "Goat",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "species",
+						"value": "Cattle",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2c LPA Get Forms available for Sheep and Lamb",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/$model?species=Sheep%20and%20Lamb",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"forms",
+						"$model"
+					],
+					"query": [
+						{
+							"key": "species",
+							"value": "Sheep%20and%20Lamb",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "species",
+						"value": "Cattle",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "2d LPA Get Forms available for Bobby Calves",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/$model?species=Bobby%20Calves",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"forms",
+						"$model"
+					],
+					"query": [
+						{
+							"key": "species",
+							"value": "Bobby%20Calves",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "species",
+						"value": "Cattle",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "3  Post Consignment empty with LPA.C.0 Form",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"PicDetails\": {\r\n    \"Pic\": \"\",\r\n    \"BusinessName\": \"\",\r\n    \"FirstName\": \"\",\r\n    \"LastName\": \"\",\r\n    \"PICName\": \"\",\r\n    \"Town\": \"\",\r\n    \"State\": \"\",\r\n    \"FullName\": \"\"\r\n  },\r\n  \"Programs\": [\r\n    \"LPA.C.0\"\r\n  ]\r\n}"
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "4 (sidenote) Search by PICID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v2/PICRegister/(PIC=QBZZ2222)",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "5a. Put Consignment (Update you can only change status and FormPrograms }",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Programs\": [\n            \"LPA.C.0\", \"HS.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "5b. Put Consignment (Update back to single form}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Programs\": [\n            \"LPA.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "6a Get the Model for Program LPA.C.0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/LPA.C.0/$model",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "6b. Get the View for Program LPA.C.0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/LPA.C.0/$view",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "species",
+						"value": "Cattle",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "7. Get the ModelForms for this consignment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms//$model",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "8.  Get Form Data for Consignment and Program {LPA.C.0}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "9a. Create Data for Consignment {LPA.C.0} errors",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ]\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n\t\t\t\t\"fullName\" : \"\",\r\n\t\t\t\t\"propertyAddress\" : {\r\n\t\t\t\t    \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n\t\t\t\t}\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n\t\t\t\t\"declare\": true,\r\n\t\t\t\t\"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            }\r\n        }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "9b. Create Data for Consignment {LPA.C.0} correct copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ],\r\n                \"isHGP\": \"No\",\r\n                \"isFedFats\": \"No\",\r\n                \"ownedSinceBirth\": \"No\",\r\n                \"cattleObtainedOrPurchasedDetails\": \"2to6Months\",\r\n                \"isFedByproducts\": \"No\",\r\n                \"isERP\": \"No\",\r\n                \"isWHP\": \"No\",\r\n                \"isConsumedWithinPeriod\": \"No\",\r\n                \"isSprayRisk\": \"No\"\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n\t\t\t\t\"fullName\" : \"Tony Stark\",\r\n\t\t\t\t\"propertyAddress\" : {\r\n\t\t\t\t    \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n\t\t\t\t}\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n\t\t\t\t\"declare\": true,\r\n\t\t\t\t\"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            },\r\n            \"consigneeLocation\": {\r\n                \"isConsigneeDifferent\": \"No\"\r\n            }\r\n        }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "10. Delete Form Data for Consignment and Program {LPA.C.0}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "11. Post Form Data for Consignment and Program {LPA.C.0}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ]\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n\t\t\t\t\"fullName\" : \"Tony Stark\",\r\n\t\t\t\t\"propertyAddress\" : {\r\n\t\t\t\t    \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n\t\t\t\t}\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n\t\t\t\t\"declare\": true,\r\n\t\t\t\t\"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            }\r\n        }"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "5b. Put Consignment (Update back to single form} again",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Programs\": [\n            \"LPA.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "12. Print Consignment { will work if complete}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/$print",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "13. Print Consignment form LPA.C.0 { Creates PDF }",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/$print",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "\n"
+			},
+			"response": []
+		},
+		{
+			"name": "14. Get the Subform Model for Program LPA.C.0",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/LPA.C.0/subforms/$model",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "15. Get the Subform Model for Program LPA.C.0 {Quantity}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/LPA.C.0/subforms/quantity/$model",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "16. Get the Subform Model for Program LPA.C.0 {partB}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/LPA.C.0/subforms/partB/$model",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "17. Get the Subform Model for Program LPA.C.0 {partC}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/forms/LPA.C.0/subforms/partC/$model",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "18. Get the consignment Subform values for Program LPA.C.0 {Quantity}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/C-000000313/forms/LPA.C.0/subforms/quantity",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "19. Get the consignment Subform values for Program LPA.C.0 {partB}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/subforms/partB",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "20. Get the consignment Subform values for Program LPA.C.0 {partC}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/subforms/partC",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "21. Post the consignment Subform values for Program LPA.C.0 {Quantity}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/subforms/quantity",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"test\",\n    \"numberOfHeads\": 10,\n    \"brands\": \"testbrands\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "22. Post the consignment Subform values for Program LPA.C.0 {PartB}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/subforms/partB",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "23. Post the consignment Subform values for Program LPA.C.0 {PartC}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/subforms/partC",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "24. Delete the consignment Subform values for Program LPA.C.0 {Quantity} by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/subforms/quantity/{{SubformQuantityID}}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "25. Get the consignment Subform values for Program LPA.C.0 {Quantity} by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/subforms/quantity/{{SubformQuantityID}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "26. Put/Update the consignment Subform values for Program LPA.C.0 {Quantity} by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0/subforms/quantity/{{SubformQuantityID}}",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"description\": \"test\",\n    \"numberOfHeads\": 12,\n    \"brands\": \"testbrands\",\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
