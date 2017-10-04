@@ -2,7 +2,7 @@
 	"variables": [],
 	"info": {
 		"name": "eNVD Software",
-		"_postman_id": "5261afae-18ed-a351-b550-734582798e30",
+		"_postman_id": "862bd709-558e-6e50-7f6e-eac3fde86330",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -34,20 +34,20 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"description": ""
-					},
-					{
 						"key": "Authorization",
 						"value": "Bearer {{API_KEY}}",
 						"description": "",
 						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "client_id=yourclientid&client_secret=yourclientsecret&grant_type=password&scope=lpa_scope&username=yourpic-youruserid&password=yourpassword"
+					"raw": "client_id=stuartjudd&client_secret=armstrong&grant_type=password&scope=lpa_scope&username=QCZZ8888-1201067&password=1201067"
 				},
 				"description": ""
 			},
@@ -487,7 +487,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"Programs\": [\n            \"LPA.C.0\", \"HS.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
+					"raw": "{\n  \"Programs\": [\n            \"LPA.C.0\", \"HS.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
 				},
 				"description": ""
 			},
@@ -532,7 +532,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"Programs\": [\n            \"LPA.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
+					"raw": "{\n  \"Programs\": [\n            \"LPA.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
 				},
 				"description": ""
 			},
@@ -767,7 +767,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ]\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n\t\t\t\t\"fullName\" : \"\",\r\n\t\t\t\t\"propertyAddress\" : {\r\n\t\t\t\t    \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n\t\t\t\t}\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n\t\t\t\t\"declare\": true,\r\n\t\t\t\t\"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            }\r\n        }"
+					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ]\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n        \"fullName\" : \"\",\r\n        \"propertyAddress\" : {\r\n            \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n        }\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n        \"declare\": true,\r\n        \"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            }\r\n        }"
 				},
 				"description": ""
 			},
@@ -817,7 +817,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ],\r\n                \"isHGP\": \"No\",\r\n                \"isFedFats\": \"No\",\r\n                \"ownedSinceBirth\": \"No\",\r\n                \"cattleObtainedOrPurchasedDetails\": \"2to6Months\",\r\n                \"isFedByproducts\": \"No\",\r\n                \"isERP\": \"No\",\r\n                \"isWHP\": \"No\",\r\n                \"isConsumedWithinPeriod\": \"No\",\r\n                \"isSprayRisk\": \"No\"\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n\t\t\t\t\"fullName\" : \"Tony Stark\",\r\n\t\t\t\t\"propertyAddress\" : {\r\n\t\t\t\t    \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n\t\t\t\t}\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n\t\t\t\t\"declare\": true,\r\n\t\t\t\t\"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            },\r\n            \"consigneeLocation\": {\r\n                \"isConsigneeDifferent\": \"No\"\r\n            }\r\n        }"
+					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ],\r\n                \"isHGP\": \"No\",\r\n                \"isFedFats\": \"No\",\r\n                \"ownedSinceBirth\": \"No\",\r\n                \"cattleObtainedOrPurchasedDetails\": \"2to6Months\",\r\n                \"isFedByproducts\": \"No\",\r\n                \"isERP\": \"No\",\r\n                \"isWHP\": \"No\",\r\n                \"isConsumedWithinPeriod\": \"No\",\r\n                \"isSprayRisk\": \"No\"\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n        \"fullName\" : \"Tony Stark\",\r\n        \"propertyAddress\" : {\r\n            \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n        }\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n        \"declare\": true,\r\n        \"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            },\r\n            \"consigneeLocation\": {\r\n                \"isConsigneeDifferent\": \"No\"\r\n            }\r\n        }"
 				},
 				"description": ""
 			},
@@ -912,7 +912,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ]\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n\t\t\t\t\"fullName\" : \"Tony Stark\",\r\n\t\t\t\t\"propertyAddress\" : {\r\n\t\t\t\t    \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n\t\t\t\t}\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n\t\t\t\t\"declare\": true,\r\n\t\t\t\t\"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            }\r\n        }"
+					"raw": "{\r\n            \"header\": {\r\n                \"logo\": \"logo.lpa.png\",\r\n                \"serialNumber\": null\r\n            },\r\n            \"additionalDocuments\": {\r\n                \"statutoryDocument\": []\r\n            },\r\n            \"foodSafety\": {\r\n                \"byProductStockFeedDetails\": {\r\n                    \"byProductStockFeed\": [\r\n                        {}\r\n                    ]\r\n                },\r\n                \"isWHPDetails\": [\r\n                    {}\r\n                ],\r\n                \"isConsumedWithinPeriodDetails\": [\r\n                    {}\r\n                ]\r\n            },\r\n            \"partBDetails\": {},\r\n            \"partCDetails\": {},\r\n            \"fromProperty\": {\r\n                \"fullTradingName\": \"Basha Property\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n                \"originPIC\": \"QCZZ8888\"\r\n            },\r\n            \"toProperty\": {\r\n                \"destinationPIC\": \"QBZZ2222\",\r\n        \"fullName\" : \"Tony Stark\",\r\n        \"propertyAddress\" : {\r\n            \"address\": \"5 myRoad Ave\",\r\n                    \"town\": \"MOONIE\",\r\n                    \"state\": \"QLD\"\r\n        }\r\n            },\r\n            \"declaration\": {\r\n                \"fullName\": \"George & Mary Basha\",\r\n                \"propertyAddress\": {\r\n                    \"address\": \"54 Dickson Ave\",\r\n                    \"town\": \"WEST RYDE\",\r\n                    \"state\": \"NSW\"\r\n                },\r\n        \"declare\": true,\r\n        \"phone\" : \"0421588947\"\r\n            },\r\n            \"description\": {\r\n                \"total\": 0\r\n            }\r\n        }"
 				},
 				"description": ""
 			},
@@ -957,7 +957,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"Programs\": [\n            \"LPA.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
+					"raw": "{\n  \"Programs\": [\n            \"LPA.C.0\"\n    ],\n    \"Status\" : \"Draft\"\n}\n"
 				},
 				"description": ""
 			},
@@ -1645,6 +1645,415 @@
 					"raw": "{\n    \"description\": \"test\",\n    \"numberOfHeads\": 12,\n    \"brands\": \"testbrands\",\n}"
 				},
 				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "27a.  Search {by PIC}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/search?pic=QDKK0786",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"consignments",
+						"search"
+					],
+					"query": [
+						{
+							"key": "pic",
+							"value": "QDKK0786",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "27c. Search { by PIC and Page 2}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/search?pic=QDKK0786&pageNumber=2",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"consignments",
+						"search"
+					],
+					"query": [
+						{
+							"key": "pic",
+							"value": "QDKK0786",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageNumber",
+							"value": "2",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "28a. Get List of Consignments for User (nextpage example)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments?pageToken=Qy0wMDAwMDAyNzM=",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"consignments"
+					],
+					"query": [
+						{
+							"key": "pageToken",
+							"value": "Qy0wMDAwMDAyNzM=",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "28b. Get List of Consignments for User (no drafts)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments?noDraft=false&pageSize=10",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"consignments"
+					],
+					"query": [
+						{
+							"key": "noDraft",
+							"value": "false",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "pageSize",
+							"value": "10",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "28c. Get List of Consignments for User (by ConsignmentNumber)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments?consignmentNumber={{ConsignmentNo}}",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"consignments"
+					],
+					"query": [
+						{
+							"key": "consignmentNumber",
+							"value": "{{ConsignmentNo}}",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "29. Get By Consignment Number {change url }",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "ss"
 			},
 			"response": []
 		}
