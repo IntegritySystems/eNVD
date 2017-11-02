@@ -10,4 +10,4 @@ npm install
 Run `ng serve --proxy-config proxy.conf.json` or `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## eNVD setup
-Modify `proxy.conf.json` for a dev server. Refer to `http://developer.integritysystems.com.au/envdapi.html` SSO Auth and eNVD API proxy setup.
+Modify `proxy.conf.json` for a dev server. Refer to `http://developer.integritysystems.com.au/envdapi.html` SSO Auth and eNVD API proxy setup. You can use the `proxy.conf.json.prod` and `proxy.conf.json.uat` templates for easy setup. 
