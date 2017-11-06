@@ -1,0 +1,12 @@
+{
+    "/auth":{
+        "target": "https://auth.integritysystems.com.au/connect/token",
+        "pathRewrite": { "^/auth": "/connect/token" },
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/api/*":{
+        "target": "https://service.nlis.com.au",
+        "secure": false
+    }
+}
