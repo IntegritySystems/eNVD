@@ -1,12 +1,12 @@
 {
   "/auth":{
-    "target": "https://auth-uat.integritysystems.com.au/connect/token",
+        "target": "[Enter the SSO Auth SERVICE URI]",
     "pathRewrite": { "^/auth": "/connect/token" },
     "secure": false,
     "changeOrigin": true
   },
   "/api/*":{
-    "target": "https://service.uat.nlis.com.au",
+    "target":  "[Enter the eNVD API URI]",
     "secure": false,
     "changeOrigin": true
   }
