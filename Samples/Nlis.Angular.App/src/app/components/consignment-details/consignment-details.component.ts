@@ -128,10 +128,6 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
           .toPromise()
           .then(res => res.json())
           .then(result => {
-            if (ref.value === 'partB') {
-              console.log('ref.value.Payload.properties.declare: ', result.Value.Payload.properties.declare);
-              delete result.Value.Payload.properties.declare.default;
-            }
             let path = jsonpath.stringify(ref.path.splice(0, ref.path.length - 1));
             if(result.Value.Name === ref.value && result.Value.Program === program){
               jsonpath.value(formPayload, path, result.Value.Payload);
