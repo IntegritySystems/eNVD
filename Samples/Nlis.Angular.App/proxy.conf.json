@@ -1,13 +1,13 @@
 {
-  "/auth":{
+    "/auth":{
         "target": "[Enter the SSO Auth SERVICE URI]",
-    "pathRewrite": { "^/auth": "/connect/token" },
-    "secure": false,
-    "changeOrigin": true
-  },
-  "/api/*":{
-    "target":  "[Enter the eNVD API URI]",
-    "secure": false,
-    "changeOrigin": true
-  }
+        "pathRewrite": { "^/auth": "/connect/token" },
+        "secure": false,
+        "changeOrigin": true
+    },
+    "/api/*":{
+        "target": "[Enter the eNVD API URI]",
+        "secure": false,
+        "changeOrigin": true
+    }
 }
