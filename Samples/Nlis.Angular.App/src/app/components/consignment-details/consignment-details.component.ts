@@ -31,7 +31,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.headers.set('Authorization', localStorage.getItem('Authorization'));
     this.headers.set('Accept', 'application/json');
-    
+
     this.isLoading = true;
     this.route.paramMap.switchMap((params: ParamMap) => this.getConsignmentDetails(params.get('id')))
     .toPromise();
@@ -49,7 +49,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
   }
 
   private getSelectedProgramDetails(selectedProgram: string) {
-    
+
     let schemaPromise = this.http.get(`${this.consignmentsApiUrl}/${this.consignment.ConsignmentNumber}/forms/$model`, { headers: this.headers })
       .toPromise()
       .then(res => { return res.json(); })
@@ -63,7 +63,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
         }
       });
 
-      let modelPromise = this.http.get(`${this.consignmentsApiUrl}/${this.consignment.ConsignmentNumber}/forms/${this.selectedProgram}`, 
+      let modelPromise = this.http.get(`${this.consignmentsApiUrl}/${this.consignment.ConsignmentNumber}/forms/${this.selectedProgram}`,
         { headers: this.headers })
         .toPromise()
         .then(res => { return res.json(); });
@@ -73,7 +73,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
       });
   }
 
-  private getAvailableProgramsForConsignment(species: string) { 
+  private getAvailableProgramsForConsignment(species: string) {
     return this.http.get(`${this.apiUrl}forms/$model?species=${species}`, { headers: this.headers})
       .toPromise()
       .then(res => { return res.json(); })
@@ -81,7 +81,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
   }
 
   private getConsignmentDetails(id: string) {
-    
+
     return this.http.get(`${this.consignmentsApiUrl}/${id}`, { headers: this.headers})
       .toPromise()
       .then(res => { return res.json() })
@@ -89,7 +89,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
         this.consignment = res.Value;
         if(this.consignment) {
           this.selectedProgram = this.consignment.FormPrograms[0];
-          
+
         } else {
           throw new Error('Failed to load the consignment.')
         }
@@ -99,7 +99,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
         .then(res =>{
           if(!res && !res.Value && res.Value.length > 0)
             return;
-  
+
           res.Value.forEach(element => {
             this.consignment.FormPrograms.forEach(consignmentProgram => {
               if(consignmentProgram === element.Program){
@@ -107,7 +107,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
               }
             });
           });
-  
+
           var firstProgram = this.availableProgramsDictionary[0].program;
           return this.getSelectedProgramDetails(firstProgram);
         })
@@ -121,7 +121,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
   }
 
   getAllAssociatedSubforms(jsonRefs: {path: jsonpath.PathComponent[], value:any}[], program: string, formPayload: any) {
-    
+
     let a = jsonRefs.map(ref => {
       return this.http.get(`${this.apiUrl}forms/${program}/subforms/${ref.value}/$model`, {headers: this.headers})
           .toPromise()
@@ -134,7 +134,7 @@ export class ConsignmentDetailsComponent implements OnInit, OnDestroy {
           })
           .catch(error => console.log(error));
     });
-    
+
     return Promise.all(a).then(res => { return formPayload });
   }
 

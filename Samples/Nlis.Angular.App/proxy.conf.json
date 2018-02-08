@@ -7,6 +7,7 @@
     },
     "/api/*":{
         "target": "[Enter the eNVD API URI]",
-        "secure": false
+        "secure": false,
+        "changeOrigin": true
     }
 }
