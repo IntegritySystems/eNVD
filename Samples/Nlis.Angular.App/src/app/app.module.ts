@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { JsonSchemaFormModule } from 'angular2-json-schema-form';
+import { JsonSchemaFormModule, Bootstrap3FrameworkModule } from 'angular2-json-schema-form';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -21,9 +21,10 @@ import { ConsignmentDetailsComponent } from './components/consignment-details/co
   ],
   imports: [
     BrowserModule,
+    Bootstrap3FrameworkModule,
     FormsModule,
     HttpModule,
-    JsonSchemaFormModule,
+    JsonSchemaFormModule.forRoot(Bootstrap3FrameworkModule),
     RouterModule.forRoot([
       {
         path: 'consignments',
