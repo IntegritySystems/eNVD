@@ -7,7 +7,7 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
-  @Input() isAuthenticated: boolean = true;
+  @Input() isAuthenticated = true;
   constructor() { }
 
   @Output() onToggleLogin: EventEmitter<boolean> = new EventEmitter();

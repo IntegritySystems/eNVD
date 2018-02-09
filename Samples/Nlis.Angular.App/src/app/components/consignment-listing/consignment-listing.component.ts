@@ -13,13 +13,13 @@ import 'rxjs/add/operator/map';
 
 export class ConsignmentListingComponent implements OnInit {
   private consignments: Array<any> = [];
-  private isLoading: boolean = true;
-  private includeDrafts: boolean = true;
-  private pageSize: number = 10;
-  private consignmentNumber: string = '';
+  private isLoading = true;
+  private includeDrafts = true;
+  private pageSize = 10;
+  private consignmentNumber = '';
   private apiUrl = `${environment.eNvdV3Api}/consignments`;
-  private nextPageToken: string = '';
-  private prevPageToken: string = '';
+  private nextPageToken = '';
+  private prevPageToken = '';
 
   @Output() onConsignmentDetailsClicked: EventEmitter<string> = new EventEmitter();
 
@@ -30,11 +30,10 @@ export class ConsignmentListingComponent implements OnInit {
   }
 
   private onConsignmentLinkClicked(cid: string) {
-    
     this.onConsignmentDetailsClicked.emit(cid);
   }
 
-  private onFiltersChanged(){
+  private onFiltersChanged() {
     this.getConsignmentsList().subscribe(data => {
       this.consignments = data.Value.Items;
       this.isLoading = false;
@@ -42,23 +41,25 @@ export class ConsignmentListingComponent implements OnInit {
   }
 
   private getConsignmentsList(): Observable<any> {
-    let headers = new Headers();
+    const headers = new Headers();
     headers.set('Authorization', localStorage.getItem('Authorization'));
     headers.set('Accept', 'application/json');
 
     return this.http.get(`${this.apiUrl}?${this.getQueryStringParams()}`, { headers })
-      .map(res => { return res.json(); });
+      .map(res => res.json());
   }
 
   private getQueryStringParams(): string {
-    let params = new URLSearchParams();
-    if(this.consignmentNumber.length > 0)
+    const params = new URLSearchParams();
+    if (this.consignmentNumber.length > 0) {
       params.set('consignmentNumber', this.consignmentNumber);
-    
+    }
+
     params.set('noDraft', (!this.includeDrafts).toString());
     params.set('pageSize', this.pageSize.toString());
-    if(this.nextPageToken.length > 0)
+    if (this.nextPageToken.length > 0) {
       params.set('pageToken', this.nextPageToken);
+    }
 
     return params.toString();
   }
