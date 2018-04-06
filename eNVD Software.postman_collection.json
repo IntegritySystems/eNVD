@@ -47,7 +47,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "client_id=stuartjudd&client_secret=armstrong&grant_type=password&scope=lpa_scope&username=QCZZ8888-1201067&password=1201067"
+					"raw": "client_id=yourclientid&client_secret=yourclientsecret&grant_type=password&scope=lpa_scope&username=yourpic-youruserid&password=yourpassword"
 				},
 				"description": ""
 			},
