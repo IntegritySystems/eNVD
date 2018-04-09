@@ -1,8 +1,8 @@
 {
 	"variables": [],
 	"info": {
-		"name": "eNVD Software",
-		"_postman_id": "862bd709-558e-6e50-7f6e-eac3fde86330",
+		"name": "eNVD Software 2018-04-04",
+		"_postman_id": "9a92b037-6e17-8ba9-63bc-98080ceade23",
 		"description": "",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
@@ -2035,8 +2035,8 @@
 				}
 			],
 			"request": {
-				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}",
-				"method": "GET",
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/userprofile/signature",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
@@ -2054,6 +2054,346 @@
 					"raw": ""
 				},
 				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "30A. Post Signature",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/userprofile/signature",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"description": "",
+							"type": "file",
+							"src": "signature.png"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "30b. Get Signature",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/userprofile/signature",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "30c. Put Signature",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/userprofile/signature",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"description": "",
+							"type": "file",
+							"src": "signature.png"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "31. Check if a user is Recipient Ready",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": {
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/RecipientReadiness?fromPic=qbzz2222&toPic=QAZZ7777",
+					"protocol": "https",
+					"host": [
+						"service",
+						"uat",
+						"nlis",
+						"com",
+						"au"
+					],
+					"path": [
+						"api",
+						"v3",
+						"vendordeclaration",
+						"RecipientReadiness"
+					],
+					"query": [
+						{
+							"key": "fromPic",
+							"value": "qbzz2222",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "toPic",
+							"value": "QAZZ7777",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"description": "",
+							"type": "file",
+							"src": "signature.png"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "32a.  Post Consignment empty with LPA.C.0 Form",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"PicDetails\": {\r\n    \"Pic\": \"\",\r\n    \"BusinessName\": \"\",\r\n    \"FirstName\": \"\",\r\n    \"LastName\": \"\",\r\n    \"PICName\": \"\",\r\n    \"Town\": \"\",\r\n    \"State\": \"\",\r\n    \"FullName\": \"\"\r\n  },\r\n  \"Programs\": [\r\n    \"LPA.C.0\"\r\n  ],\r\n  \"VendorTrackingCode\": \"\",\r\n  \"ReferenceNumber\": \"\"  \r\n}"
+				},
+				"description": "ss"
+			},
+			"response": []
+		},
+		{
+			"name": "32b. Create Data for Consignment {LPA.C.0} + Signature",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"Status code is 200\"] = responseCode.code === 200;",
+							"",
+							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
+							"",
+							"var responseData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
+							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
+							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
+							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
+							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments/{{ConsignmentNo}}/forms/LPA.C.0",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_KEY}}",
+						"description": ""
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"header\": {\r\n\t\t\"logo\": \"logo.lpa.png\",\r\n\t\t\"serialNumber\": null\r\n\t},\r\n\t\"fromProperty\": {\r\n        \"fullTradingName\": \"Basha Property\",\r\n        \"propertyAddress\": {\r\n        \"address\": \"54 Dickson Ave\",\r\n        \"town\": \"WEST RYDE\",\r\n        \"state\": \"NSW\"\r\n    },\r\n    \"originPIC\": \"QCZZ8888\"\r\n    },\r\n    \"toProperty\": {\r\n    \t\"destinationPIC\": \"QBZZ2222\",\r\n    \t\"fullName\" : \"Tony Stark\",\r\n    \t\"propertyAddress\" : {\r\n        \t\"address\": \"5 myRoad Ave\",\r\n            \"town\": \"MOONIE\",\r\n            \"state\": \"QLD\"\r\n        }\r\n\t},\r\n\t\"additionalDocuments\": {\r\n\t\t\"statutoryDocument\": []\r\n\t},\r\n\t\"foodSafety\": {\r\n\t\t\"byProductStockFeedDetails\": {\r\n\t\t\t\"byProductStockFeed\": [{\r\n\t\t\t\t\r\n\t\t\t}]\r\n\t\t},\r\n\t\t\"isWHPDetails\": [{\r\n\t\t\t\r\n\t\t}],\r\n\t\t\"isConsumedWithinPeriodDetails\": [{\r\n\t\t\t\r\n\t\t}],\r\n\t\t\"isHGP\": \"Yes\",\r\n\t\t\"isFedFats\": \"No\",\r\n\t\t\"ownedSinceBirth\": \"No\",\r\n\t\t\"cattleObtainedOrPurchasedDetails\": \"2to6Months\",\r\n\t\t\"isFedByproducts\": \"No\",\r\n\t\t\"isERP\": \"No\",\r\n\t\t\"isWHP\": \"No\",\r\n\t\t\"isConsumedWithinPeriod\": \"No\",\r\n\t\t\"isSprayRisk\": \"No\"\r\n\t},\r\n\t\"partBDetails\": {\r\n\t\t\r\n\t},\r\n\t\"partCDetails\": {\r\n\t\t\r\n\t},\r\n\t\"declaration\": {\r\n\t\t\"fullName\": \"It's ME\",\r\n\t\t\"propertyAddress\": {\r\n\t\t\t\"address\": \"54 Dickson Ave\",\r\n\t\t\t\"town\": \"WEST RYDE\",\r\n\t\t\t\"state\": \"NSW\"\r\n\t\t},\r\n\t\t\"declare\": true,\r\n\t\t\"phone\": \"0210002000\",\r\n\t\t\"signature\": {\r\n\t\t\t \"Image\": \"data:image/png;base64,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\"\r\n\t\t}\t\t\r\n\t},\r\n\t\"description\": {\r\n\t\t\"total\": 0\r\n\t},\r\n\t\"consigneeLocation\": {\r\n\t\t\"isConsigneeDifferent\": \"No\"\r\n\t}\r\n}"
+				},
+				"description": ""
 			},
 			"response": []
 		}
