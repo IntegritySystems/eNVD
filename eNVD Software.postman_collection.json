@@ -20,11 +20,7 @@
 							"tests[\"Content-Type is present\"] = postman.getResponseHeader(\"Content-Type\");",
 							"",
 							"var responseData = JSON.parse(responseBody);",
-							"postman.setGlobalVariable(\"token1\",responseData.accountsResponse.accounts[0].accountToken);",
-							"postman.setGlobalVariable(\"token2\",responseData.accountsResponse.accounts[1].accountToken);",
-							"postman.setGlobalVariable(\"token3\",responseData.accountsResponse.accounts[2].accountToken);",
-							"postman.setGlobalVariable(\"token4\",responseData.accountsResponse.accounts[3].accountToken);",
-							"postman.setGlobalVariable(\"token5\",responseData.accountsResponse.accounts[3].accountToken);"
+							"postman.setGlobalVariable(\"API_KEY\",responseData.access_token);"
 						]
 					}
 				}
@@ -49,7 +45,7 @@
 					"mode": "raw",
 					"raw": "client_id=yourclientid&client_secret=yourclientsecret&grant_type=password&scope=lpa_scope&username=yourpic-youruserid&password=yourpassword"
 				},
-				"description": ""
+				"description": "On authentication the API_KEY variable will automatically be set to the access token. This can be overriden by specifying the API_KEY as a collection variables if needed"
 			},
 			"response": []
 		},
