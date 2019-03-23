@@ -1890,7 +1890,7 @@
 			],
 			"request": {
 				"url": {
-					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments?noDraft=false&pageSize=10",
+					"raw": "https://service.uat.nlis.com.au/api/v3/vendordeclaration/consignments?noDraft=true&pageSize=10",
 					"protocol": "https",
 					"host": [
 						"service",
@@ -1938,7 +1938,7 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"description": "ss"
+				"description": "Returns last 10 consignments for user that are not a draft"
 			},
 			"response": []
 		},
